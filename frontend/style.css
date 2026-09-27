@@ -1,0 +1,97 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f6f8;
+    margin: 0;
+    padding: 30px;
+    color: #222;
+}
+
+.container {
+    max-width: 1000px;
+    margin: auto;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    margin-bottom: 8px;
+}
+
+header p {
+    color: #666;
+}
+
+.form-box,
+.card {
+    background: white;
+    padding: 22px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+label {
+    display: block;
+    margin-top: 12px;
+    font-weight: bold;
+}
+
+input,
+textarea,
+select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 6px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+textarea {
+    min-height: 90px;
+    resize: vertical;
+}
+
+button {
+    padding: 10px 16px;
+    margin-top: 15px;
+    margin-right: 6px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.buttons button:first-child {
+    background: #222;
+    color: white;
+}
+
+.card h3 {
+    margin-top: 0;
+}
+
+.card p {
+    line-height: 1.5;
+}
+
+.open {
+    color: green;
+    font-weight: bold;
+}
+
+.closed {
+    color: red;
+    font-weight: bold;
+}
+
+#message {
+    min-height: 25px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research Opportunity Portal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Research Opportunity Portal</h1>
+        <p>Manage university research opportunities in one place.</p>
+    </header>
+
+    <div id="message"></div>
+
+    <section class="form-box">
+        <h2 id="form-title">Create Research Opportunity</h2>
+
+        <input type="hidden" id="opportunity-id">
+
+        <label for="research-title">Research Title</label>
+        <input id="research-title" type="text">
+
+        <label for="research-description">Research Description</label>
+        <textarea id="research-description"></textarea>
+
+        <label for="research-area">Research Area</label>
+        <input id="research-area" type="text">
+
+        <label for="faculty-name">Faculty Member Name</label>
+        <input id="faculty-name" type="text">
+
+        <label for="department">Department</label>
+        <input id="department" type="text">
+
+        <label for="required-skills">Required Skills</label>
+        <input id="required-skills" type="text">
+
+        <label for="available-positions">Available Positions</label>
+        <input id="available-positions" type="number" min="1">
+
+        <label for="application-deadline">Application Deadline</label>
+        <input id="application-deadline" type="date">
+
+        <label for="status">Status</label>
+        <select id="status">
+            <option value="Open">Open</option>
+            <option value="Closed">Closed</option>
+        </select>
+
+        <div class="buttons">
+            <button onclick="saveOpportunity()">Save Opportunity</button>
+            <button onclick="clearForm()">Clear</button>
+        </div>
+    </section>
+
+    <section>
+        <h2>Research Opportunities</h2>
+        <div id="opportunities"></div>
+    </section>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
