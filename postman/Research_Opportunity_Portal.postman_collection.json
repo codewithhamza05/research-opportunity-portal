@@ -1,0 +1,131 @@
+{
+  "info": {
+    "name": "Research Opportunity Portal",
+    "description": "API testing collection for the University Research Opportunity Portal.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://127.0.0.1:5000"
+    },
+    {
+      "key": "opportunityId",
+      "value": "1"
+    }
+  ],
+  "item": [
+    {
+      "name": "1. Create Opportunity",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"research_title\": \"AI Research Project\",\n  \"research_description\": \"Research project in artificial intelligence.\",\n  \"research_area\": \"Artificial Intelligence\",\n  \"faculty_name\": \"Dr. Test Faculty\",\n  \"department\": \"Computer Science\",\n  \"required_skills\": \"Python, Machine Learning\",\n  \"available_positions\": 2,\n  \"application_deadline\": \"2026-12-31\",\n  \"status\": \"Open\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/opportunities"
+        }
+      }
+    },
+    {
+      "name": "2. Get All Opportunities",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}/api/opportunities"
+        }
+      }
+    },
+    {
+      "name": "3. Get One Opportunity",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}/api/opportunities/{{opportunityId}}"
+        }
+      }
+    },
+    {
+      "name": "4. Update Opportunity",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"research_title\": \"Updated AI Research Project\",\n  \"available_positions\": 4\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/opportunities/{{opportunityId}}"
+        }
+      }
+    },
+    {
+      "name": "5. Close Opportunity",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"status\": \"Closed\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/opportunities/{{opportunityId}}"
+        }
+      }
+    },
+    {
+      "name": "6. Delete Opportunity",
+      "request": {
+        "method": "DELETE",
+        "url": {
+          "raw": "{{baseUrl}}/api/opportunities/{{opportunityId}}"
+        }
+      }
+    },
+    {
+      "name": "7. Test 404 Not Found",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}/api/opportunities/99999"
+        }
+      }
+    },
+    {
+      "name": "8. Test Validation",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"research_title\": \"\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/opportunities"
+        }
+      }
+    }
+  ]
+}
