@@ -2,14 +2,18 @@
 
 A web-based Research Opportunity Portal developed for the FAST University CN assignment.
 
-The system allows faculty members to create, view, update, close, and delete research opportunities through a REST API and a simple frontend.
+The system allows faculty members to create, view, update, close, and delete research opportunities through a REST API and a simple frontend interface.
+
+## GitHub Repository
+
+https://github.com/codewithhamza05/research-opportunity-portal
 
 ## Technologies
 
-- **Backend:** Python, Flask
-- **Database:** MySQL
-- **Frontend:** HTML, CSS, JavaScript
-- **API Testing:** Postman
+* **Backend:** Python, Flask
+* **Database:** MySQL
+* **Frontend:** HTML, CSS, JavaScript
+* **API Testing:** Postman
 
 ## Project Structure
 
@@ -17,9 +21,7 @@ The system allows faculty members to create, view, update, close, and delete res
 Research-Opportunity-Portal/
 │
 ├── backend/
-│   ├── app.py
-│   ├── requirements.txt
-│   └── .env.example
+│   └── app.py
 │
 ├── database/
 │   ├── schema.sql
@@ -35,115 +37,111 @@ Research-Opportunity-Portal/
 │
 ├── .gitignore
 ├── LICENSE
-└── README.md
+├── README.md
+└── SUBMISSION_CHECKLIST.md
 ```
 
 ## Features
 
-- Create a research opportunity
-- Retrieve all research opportunities
-- Retrieve one research opportunity
-- Update a research opportunity
-- Change an opportunity from Open to Closed
-- Delete a research opportunity
-- Basic input validation
-- 404 handling
-- MySQL database storage
-- Postman API testing
+* Create a research opportunity
+* Retrieve all research opportunities
+* Retrieve one research opportunity
+* Update a research opportunity
+* Change an opportunity from Open to Closed
+* Delete a research opportunity
+* Basic input validation
+* 404 Not Found handling
+* MySQL database storage
+* Postman API testing
+* Simple frontend interface
 
 ## Research Opportunity Fields
 
-Each opportunity contains:
+Each research opportunity contains:
 
-- Unique ID
-- Research title
-- Research description
-- Research area
-- Faculty member name
-- Department
-- Required skills
-- Number of available positions
-- Application deadline
-- Status: Open or Closed
+* Unique ID
+* Research title
+* Research description
+* Research area
+* Faculty member name
+* Department
+* Required skills
+* Number of available positions
+* Application deadline
+* Status: Open or Closed
 
 ## API Endpoints
 
-| Method | Endpoint | Purpose |
-|---|---|---|
-| POST | `/api/opportunities` | Create opportunity |
-| GET | `/api/opportunities` | Get all opportunities |
-| GET | `/api/opportunities/<id>` | Get one opportunity |
-| PUT | `/api/opportunities/<id>` | Update opportunity |
-| DELETE | `/api/opportunities/<id>` | Delete opportunity |
+| Method | Endpoint                  | Purpose                       |
+| ------ | ------------------------- | ----------------------------- |
+| POST   | `/api/opportunities`      | Create a research opportunity |
+| GET    | `/api/opportunities`      | Retrieve all opportunities    |
+| GET    | `/api/opportunities/<id>` | Retrieve one opportunity      |
+| PUT    | `/api/opportunities/<id>` | Update an opportunity         |
+| DELETE | `/api/opportunities/<id>` | Delete an opportunity         |
 
 ## HTTP Status Codes
 
-- `200 OK`
-- `201 Created`
-- `400 Bad Request`
-- `404 Not Found`
-- `500 Internal Server Error`
+The API uses the following status codes:
 
-## Setup
+* `200 OK` — Successful request
+* `201 Created` — Research opportunity created successfully
+* `400 Bad Request` — Invalid or missing data
+* `404 Not Found` — Research opportunity does not exist
+* `500 Internal Server Error` — Server or database error
 
-### 1. Clone the repository
+## Setup and Installation
+
+### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/YOUR-USERNAME/Research-Opportunity-Portal.git
-cd Research-Opportunity-Portal
+git clone https://github.com/codewithhamza05/research-opportunity-portal.git
+cd research-opportunity-portal
 ```
 
-### 2. Create the MySQL database
+### 2. Create the MySQL Database
 
-Open MySQL Workbench or MySQL command line and run:
+Open MySQL Workbench or the MySQL command line.
+
+Run the database schema:
 
 ```sql
 SOURCE database/schema.sql;
 ```
 
-To insert the three sample research opportunities:
+To insert the sample research opportunities:
 
 ```sql
 SOURCE database/sample_data.sql;
 ```
 
-### 3. Create a Python virtual environment
+### 3. Create a Python Virtual Environment
 
-Windows:
+#### Windows
 
 ```bash
 python -m venv venv
 venv\Scripts\activate
 ```
 
-macOS/Linux:
+#### macOS/Linux
 
 ```bash
 python3 -m venv venv
 source venv/bin/activate
 ```
 
-### 4. Install dependencies
+### 4. Install Dependencies
+
+Install the required Python packages:
 
 ```bash
 pip install -r backend/requirements.txt
 ```
 
-### 5. Configure database credentials
+### 5. Configure Database Credentials
 
-Copy:
-
-```text
-backend/.env.example
-```
-
-to:
-
-```text
-backend/.env
-```
-
-Then put your MySQL username and password in `.env`.
+Create a `.env` file inside the `backend` folder.
 
 Example:
 
@@ -156,7 +154,9 @@ DB_NAME=research_portal
 
 Do **not** upload `.env` to GitHub.
 
-### 6. Run the backend
+Database passwords and other private credentials must not be committed to the repository.
+
+### 6. Run the Backend
 
 From the project root:
 
@@ -164,13 +164,13 @@ From the project root:
 python backend/app.py
 ```
 
-The API will run at:
+The Flask API will run at:
 
 ```text
 http://127.0.0.1:5000
 ```
 
-### 7. Run the frontend
+### 7. Run the Frontend
 
 Open:
 
@@ -178,66 +178,66 @@ Open:
 frontend/index.html
 ```
 
-in your browser.
+in a web browser.
 
-The frontend communicates with the Flask REST API.
+The frontend communicates with the Flask REST API and retrieves data from the MySQL database.
 
 ## Postman Testing
 
-The `postman` folder contains an exported Postman collection.
-
-It includes requests for:
-
-1. Creating an opportunity
-2. Retrieving all opportunities
-3. Retrieving one opportunity
-4. Updating an opportunity
-5. Closing an opportunity
-6. Deleting an opportunity
-7. Testing `404 Not Found`
-8. Testing invalid/missing data
-
-## GitHub
-
-Before submitting, replace:
+The exported Postman collection is located in:
 
 ```text
-https://github.com/YOUR-USERNAME/Research-Opportunity-Portal
+postman/Research_Opportunity_Portal.postman_collection.json
 ```
 
-with your actual GitHub repository URL.
+The collection contains requests for the required API testing:
 
-Make meaningful commits while developing the project.
+1. Create at least three research opportunities
+2. Retrieve all research opportunities
+3. Retrieve one research opportunity
+4. Update an existing opportunity
+5. Change an opportunity from Open to Closed
+6. Delete an opportunity
+7. Request the deleted opportunity to demonstrate `404 Not Found`
+8. Send invalid or missing data to demonstrate `400 Bad Request`
 
-Example:
+## Git Commit History
 
-```text
-Initial project structure
-Add MySQL database schema
-Add CRUD REST API
-Add frontend interface
-Add Postman collection
-Update README
-```
+Meaningful commits were made during development instead of uploading the entire project in a single commit.
+
+The repository includes commits for:
+
+* Backend REST API
+* Database schema and sample data
+* Frontend interface
+* Postman API collection
+* Project documentation
+* GitHub repository link
 
 ## Security
 
-Do not commit:
+The following private information must not be committed to GitHub:
 
-- MySQL passwords
-- API keys
-- `.env`
-- Personal access tokens
-- Other private credentials
+* MySQL passwords
+* API keys
+* `.env` files
+* Personal access tokens
+* Other private credentials
+
+The `.gitignore` file is included to prevent sensitive and unnecessary files from being committed.
 
 ## Assignment Submission
 
 The final submission should contain:
 
-- Backend source code
-- Frontend source code
-- Database schema/setup
-- Postman collection
-- README.md
-- GitHub repository link
-- One-minute demonstration video
+* Backend source code
+* Frontend source code
+* Database schema/setup files
+* Exported Postman collection
+* `README.md`
+* GitHub repository link
+* One-minute demonstration video or video link
+
+## GitHub Repository Link
+
+https://github.com/codewithhamza05/research-opportunity-portal
